@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Library
+    </title>
+    <!-- CSS Files-->
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/login.css')}}">
+    <!-- Font Awesome Icon-->
+    <script src="https://kit.fontawesome.com/f8b60e3144.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-box register">
+            <h2>Register</h2>
+            <form action="{{ url_for('dregister')}}" method="POST">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input id="rname" type="text" name="u_name" required>
+                    <label for="rname">User Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input id="remail" type="email" name="email" required>
+                    <label for="remail">Email Id</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input id="rpass" type="password" name="password" required>
+                    <label for="rpass">Password</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input id="rcpass" type="password" name="cpassword" required>
+                    <label for="rcpass">Confirm Password</label>
+                </div>
+                <div class="check-box">
+                    <input id="t_c" type="checkbox">
+                    <label for="t_c">Agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <div class="col-12 text-center">
+                    <input type="submit" value="Register" name="register" class="butn" id="reg">
+                </div>
+                <div class="login-reg">
+                    <p>Already have an account?<a href="{{ url_for('login') }}" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Core Js Files-->
+    <script src="{{url_for('static',filename = 'js/core/jquery-3.6.0.min.js')}}"></script>
+    <script>
+        $("#reg").click(function () {
+            alert("Register Successful");
+        })
+    </script>
+</body>
+</html>

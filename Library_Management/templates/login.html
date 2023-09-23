@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Library
+    </title>
+    <!-- CSS Files-->
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/login.css')}}">
+    <!-- Font Awesome Icon-->
+    <script src="https://kit.fontawesome.com/f8b60e3144.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-box login">
+            <h2>Log In</h2>
+            <form action="{{ url_for('dlogin')}}" method="POST">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" id="name" name="u_name" required>
+                    <label for="name">User Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" id="password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="col-12 text-center">
+                    <input type="submit" value="login" name="login" class="butn">
+                </div>
+                <div class="col-12 text-center">
+                    <p style="color: red; font-weight: bolder; text-align: center">
+                        {% with msg=get_flashed_messages() %}
+                            {% if msg %}
+                                {% for i in msg %}
+                                    {{i}}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </p>
+                </div>
+                <div class="login-reg">
+                    <p>Don't have an account?<a href="{{ url_for('register') }}" class="reg-link" id="reg1">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Core Js Files-->
+    <script src="{{url_for('static',filename = 'js/core/jquery-3.6.0.min.js')}}"></script>
+    <script>
+        $('reg1').click(function () {
+            wrapper.classList.add('active')
+        })
+    </script>
+</body>
+</html>

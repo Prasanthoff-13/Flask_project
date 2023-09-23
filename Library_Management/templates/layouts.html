@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Dashboard - {% block title %}{% endblock %}
+  </title>
+  <!--     Fonts     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/f8b60e3144.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{{ url_for('static',filename = 'css/dashboard.css')}}" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show   bg-gray-100">
+  {% block body %}{% endblock %}
+  <!--   Core JS Files   -->
+  <script src="{{ url_for('static',filename = 'js/dashboard.min.js/core/popper.min.js')}}"></script>
+  <script src="{{ url_for('static',filename = 'js/dashboard.min.js/core/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for('static',filename = 'js/dashboard.min.js/plugins/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{ url_for('static',filename = 'js/dashboard.min.js/plugins/smooth-scrollbar.min.js')}}"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{ url_for('static',filename = 'js/dashboard.min.js') }}"></script>
+  <script src="{{ url_for('static',filename = 'js/core/jquery-3.6.0.min.js')}}"></script>
+  <script>
+    $('#b').click(function(){
+      $('#formA').show();
+    })
+    $('#a').click(function(){
+      $('#formA').hide();
+    })
+    function a(){
+      $('#formA').hide();
+    }
+
+    function toggleSidenav() {
+  if (body.classList.contains(className)) {
+    body.classList.remove(className);
+    setTimeout(function() {
+      sidenav.classList.remove('bg-white');
+    }, 100);
+    sidenav.classList.remove('bg-transparent');
+
+  } else {
+    body.classList.add(className);
+    sidenav.classList.add('bg-white');
+    sidenav.classList.remove('bg-transparent');
+    iconSidenav.classList.remove('d-none');
+  }
+}
+  </script>
+</body>
+
+</html>
